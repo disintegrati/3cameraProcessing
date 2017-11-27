@@ -43,19 +43,19 @@ saveFrame("intere/" + timestamp + ".jpg");
   
    image(img,0,0);
    PImage c = get(0,0, 640, 160);
-   image(c, 0,120);
-   save("parte1/parte1.jpg");
+   image(c, 0,0);
+   save("parte1/"+ timestamp + ".jpg");
    
    image(img, 0,0 );
    PImage d = get(0, 160, 640, 160);
    image(d, 0, 160);
-   save("parte2/parte2.jpg");
+   save("parte2/"+ timestamp + ".jpg");
    
    image(img,0,0);
    PImage e = get(0, 320, 640, 160);
    //image(e, 0, 320);
    image(e, 0, 320);
-   save("parte3/parte3.jpg");
+   save("parte3/"+ timestamp + ".jpg");
    delay(5000);
    
 }
