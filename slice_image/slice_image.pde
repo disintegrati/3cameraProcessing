@@ -4,7 +4,8 @@ long timestamp;
 Capture webcam;
 
 void setup() {
-  size(640,480);
+
+   size(640,480);
   webcam = new Capture(this,640,480);  
   webcam.start();
   String[] devices = Capture.list();
@@ -13,12 +14,14 @@ void setup() {
 }
 
 void draw() {
-  if (webcam.available() == true) {
+ 
+    if (webcam.available() == true) {
     webcam.read();
     image(webcam ,0,0);
   }
+  
   if (mousePressed == true) {
-scatta();
+taglia();
 //saveFrame("intere/test.png");
 }
   
@@ -26,24 +29,33 @@ scatta();
 
 
 
-void scatta()
+void taglia()
 {
+  //delay(100);
   
   Date date = new Date();
 timestamp=(date.getTime());
 println(timestamp);
 saveFrame("intere/" + timestamp + ".jpg");
+
    PImage img = loadImage("intere/" + timestamp + ".jpg");
+   //PImage img = loadImage("intere/test.jpg");
   
    image(img,0,0);
-   PImage c = get();
+   PImage c = get(0,0, 640, 160);
+   image(c, 0,120);
    save("parte1/parte1.jpg");
    
-   image(img,-400,-200);
-   PImage d = get();
+   image(img, 0,0 );
+   PImage d = get(0, 160, 640, 160);
+   image(d, 0, 160);
    save("parte2/parte2.jpg");
    
-   image(img,0,-400);
-   PImage e = get();
+   image(img,0,0);
+   PImage e = get(0, 320, 640, 160);
+   //image(e, 0, 320);
+   image(e, 0, 320);
    save("parte3/parte3.jpg");
+   delay(5000);
+   
 }
